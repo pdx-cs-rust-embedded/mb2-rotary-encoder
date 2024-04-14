@@ -9,6 +9,7 @@ license-file = "LICENSE.txt"
 cortex-m-rt = "0.7"
 microbit-v2 = "0.13.0"
 rotary-encoder-embedded = "0.2.0"
+rotary-encoder-hal = "0.5.0"
 rtt-target = "0.5.0"
 
 [dependencies.panic-rtt-target]

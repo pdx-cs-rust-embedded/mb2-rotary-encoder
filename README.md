@@ -65,8 +65,11 @@ I started out with my own super-cheese solution for decoding.
 The library sources is in `src/lib_bad.rs`; the app source
 is in `src/bin/bad.rs`.
 
-The library works surprisingly well: it wants a 2 ms poll,
+The library works surprisingly well. It wants a 2 ms poll,
 and maintains an internal count.
+
+The algorithm considers only transitions into the assumed
+stable state.
 
 ### `rotary-encoder-embedded`
 
@@ -74,16 +77,36 @@ and maintains an internal count.
 is a lightweight library with good documentation, and knob
 velocity support. It was last updated about 1.5 years ago.
 
-The library is relatively easy to use: it wants a 1.111 ms
-poll, and maintains a step enum.
+The library is relatively easy to use. It wants a 1.111 ms
+poll (?), and maintains a step enum.
   
 App source code is in `src/bin/rotary-encoder-embedded.rs`.
 The app occasionally drops or doubles clicks, but is
 otherwise fine.
 
+The algorithm considers only transitions into the assumed
+stable state.
+
+### `rotary-encoder-hal`
+
 [`rotary-encoder-hal`](https://crates.io/crates/rotary-encoder-hal)
-is a lightweight library with reasonable documentation, last
-updated about 2.5 years ago.
+is a lightweight library with reasonable documentation.
+
+`crates.io` was last updated about 2.5 years ago. The repo
+shows current maintenance.
+
+The Cargo feature `table-driven` enables a more noise-robust
+decoding algorithm. This seemed to work well.
+
+This library maintains a step enum. It has an algorithm for
+measuring steps that takes sub-steps fully into account; it
+thus returns 4 steps for every change of detent. I found
+that a poll time of 1 ms worked.
+
+This library produces good results, but can be fooled by
+sufficient "scrubbing" of the dial.
+
+### `sb-rotary-encoder`
 
 [`sb-rotary-encoder`](https://crates.io/crates/sb-rotary-encoder)
 is a fancy library with solid documentation, knob velocity

@@ -103,6 +103,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7a81dae078cea95a014a339291cec439d2f232ebe854a9d672b796c6afafa9b7"
 
 [[package]]
+name = "either"
+version = "1.11.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a47c1c47d2f5964e29c61246e81db715514cd532db6b5116a25ea3c03d6780a2"
+
+[[package]]
 name = "embedded-dma"
 version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -158,6 +164,7 @@ dependencies = [
  "microbit-v2",
  "panic-rtt-target",
  "rotary-encoder-embedded",
+ "rotary-encoder-hal",
  "rtt-target 0.5.0",
 ]
 
@@ -291,6 +298,16 @@ version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "01c89f3f7f863c203d8346f58b485731765ecc22c27f3186b53e2013bda7d65d"
 dependencies = [
+ "embedded-hal",
+]
+
+[[package]]
+name = "rotary-encoder-hal"
+version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ca5f10fcd6842ed448d9f5913815a343cdcbe10e53da6cac948251d529b75487"
+dependencies = [
+ "either",
  "embedded-hal",
 ]
 
