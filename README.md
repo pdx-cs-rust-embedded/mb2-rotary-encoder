@@ -1,5 +1,5 @@
 # mb2-rotary-encoder: rotary encoder eval and crate bakeoff
-Bart Massey 2024
+Bart Massey 2024-04-13
 
 This crate is part of an evaluation of the use of mechanical
 rotary encoder knobs with the BBC MicroBit v2.
@@ -123,7 +123,16 @@ poking at right now.
 * `embtk-rotary-encoder` is a five-year-old library with no
   README.
 
-# License
+## Update 2025-06-04
+
+I brought the code up to current `microbit-v2`, Embedded HAL
+1.0, and Rust 2024. `rotary-encoder-embedded` (v0.4.0
+2025-02-27) and `rotary-encoder-hal` (v0.6.0 2025-02-10)
+updated since last evaluation. There were breaking changes,
+none of which seemed too substantive at first glance, all of
+which were readily corrected.
+
+## License
 
 This work is licensed under the "MIT License". Please see the file
 `LICENSE.txt` in this distribution for license terms.
