@@ -17,7 +17,7 @@ fn update<D, C>(r: &mut RotaryEncoder<StandardMode, D, C>, count: isize) -> isiz
 
 mb2_rotary_encoder::main! {
     |pin_a, pin_b| RotaryEncoder::new(pin_b, pin_a).into_standard_mode(),
-    |r: &mut RotaryEncoder<StandardMode, _, _>| r.update(),
+    |_r| (),
     update,
     1111,
 }
