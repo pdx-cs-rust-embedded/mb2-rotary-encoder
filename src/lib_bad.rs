@@ -1,4 +1,5 @@
-use microbit::hal::{prelude::*, gpio::*};
+use embedded_hal::digital::InputPin;
+use microbit::hal::gpio::*;
 
 struct Encoder {
     pin_a: Pin<Input<PullUp>>,
@@ -13,7 +14,7 @@ impl Encoder {
         Self { pin_a, pin_b }
     }
 
-    fn read(&self) -> u8 {
+    fn read(&mut self) -> u8 {
         let a = self.pin_a.is_high().unwrap();
         let b = self.pin_b.is_high().unwrap();
         ((a as u8) << 1) | b as u8

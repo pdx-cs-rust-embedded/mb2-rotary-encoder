@@ -1,20 +1,18 @@
 [package]
 name = "mb2-rotary-encoder"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 authors = ["Bart Massey <bart.massey@gmail.com>"]
 license-file = "LICENSE.txt"
 
 [dependencies]
 cortex-m-rt = "0.7"
-microbit-v2 = "0.13.0"
-rotary-encoder-embedded = "0.2.0"
-rotary-encoder-hal = "0.5.0"
-rtt-target = "0.5.0"
-
-[dependencies.panic-rtt-target]
-version = "0.1"
-features = ["cortex-m"]
+embedded-hal = "1.0.0"
+microbit-v2 = "0.15.1"
+panic-rtt-target = "0.2"
+rotary-encoder-embedded = "0.4.0"
+rotary-encoder-hal = "0.6.0"
+rtt-target = "0.6.1"
 
 # This works around old versions in the `microbit-v2`
 # crate. You don't have to use this crate, just linking

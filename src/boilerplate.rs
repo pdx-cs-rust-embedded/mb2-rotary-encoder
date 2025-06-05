@@ -12,9 +12,9 @@ macro_rules! main {
             rtt_init_print!();
             let board = Board::take().unwrap();
             let mut delay = Delay::new(board.SYST);
-            let _pin_s = board.pins.p1_02.into_pullup_input().degrade();
-            let pin_a = board.pins.p0_10.into_pullup_input().degrade();
-            let pin_b = board.pins.p0_09.into_pullup_input().degrade();
+            let _pin_s = board.edge.e16.into_pullup_input().degrade();
+            let pin_a = board.edge.e08.into_pullup_input().degrade();
+            let pin_b = board.edge.e09.into_pullup_input().degrade();
             let mut rotary = ($init)(pin_a, pin_b);
             let mut count = 0;
 

@@ -1,10 +1,11 @@
 #![no_main]
 #![no_std]
 
-use rotary_encoder_hal::{Rotary, Direction};
+use embedded_hal::{digital::InputPin, delay::DelayNs};
+use rotary_encoder_hal::{Direction, Phase, Rotary};
 
-fn update<A, B>(r: &mut Rotary<A, B>, count: isize) -> isize
-    where A: InputPin, B: InputPin,
+fn update<A, B, P>(r: &mut Rotary<A, B, P>, count: isize) -> isize
+    where A: InputPin, B: InputPin, P: Phase,
 {
     let delta = match r.update().map_err(|_| "update error").unwrap() {
         Direction::Clockwise => 1,
@@ -18,5 +19,5 @@ mb2_rotary_encoder::main! {
     Rotary::new,
     |_| (),
     update,
-    1000u16,
+    1000,
 }
