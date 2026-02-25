@@ -8,11 +8,11 @@ license-file = "LICENSE.txt"
 [dependencies]
 cortex-m-rt = "0.7"
 embedded-hal = "1.0.0"
-microbit-v2 = "0.15.1"
+microbit-v2 = "0.16.0"
 panic-rtt-target = "0.2"
-rotary-encoder-embedded = "0.4.0"
+rotary-encoder-embedded = "0.5.0"
 rotary-encoder-hal = "0.6.0"
-rtt-target = "0.6.1"
+rtt-target = "0.6.2"
 
 # This works around old versions in the `microbit-v2`
 # crate. You don't have to use this crate, just linking

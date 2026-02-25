@@ -132,6 +132,12 @@ updated since last evaluation. There were breaking changes,
 none of which seemed too substantive at first glance, all of
 which were readily corrected.
 
+## Update 2026-02-25
+
+Once again upgraded: `microbit-v2`,
+`rotary-encoder-embedded` and `rtt-target`. Nothing seemed
+to change much.
+
 ## License
 
 This work is licensed under the "MIT License". Please see the file
