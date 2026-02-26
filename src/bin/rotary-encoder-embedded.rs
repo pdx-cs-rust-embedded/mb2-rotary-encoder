@@ -1,11 +1,13 @@
 #![no_main]
 #![no_std]
 
-use embedded_hal::{digital::InputPin, delay::DelayNs};
-use rotary_encoder_embedded::{RotaryEncoder, Direction, standard::StandardMode};
+use embedded_hal::{delay::DelayNs, digital::InputPin};
+use rotary_encoder_embedded::{Direction, RotaryEncoder, standard::StandardMode};
 
 fn update<D, C>(r: &mut RotaryEncoder<StandardMode, D, C>, count: isize) -> isize
-    where D: InputPin, C: InputPin,
+where
+    D: InputPin,
+    C: InputPin,
 {
     let delta = match r.update() {
         Direction::Clockwise => 1,
@@ -21,6 +23,3 @@ mb2_rotary_encoder::main! {
     update,
     1111,
 }
-
-
-

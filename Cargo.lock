@@ -189,6 +189,7 @@ dependencies = [
  "rotary-encoder-embedded",
  "rotary-encoder-hal",
  "rtt-target",
+ "sb-rotary-encoder",
 ]
 
 [[package]]
@@ -359,6 +360,12 @@ checksum = "138e3e0acb6c9fb258b19b67cb8abd63c00679d2851805ea151465464fe9030a"
 dependencies = [
  "semver",
 ]
+
+[[package]]
+name = "sb-rotary-encoder"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "42e8ca0f5532f70e0335143c59b82127455dfe3aa571d88a08206802bfa03938"
 
 [[package]]
 name = "semver"

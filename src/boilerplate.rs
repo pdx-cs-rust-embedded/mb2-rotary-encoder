@@ -5,7 +5,10 @@ macro_rules! main {
         use rtt_target::{rprintln, rtt_init_print};
 
         use cortex_m_rt::entry;
-        use microbit::{board::Board, hal::{prelude::*, Delay}};
+        use microbit::{
+            board::Board,
+            hal::{Delay, prelude::*},
+        };
 
         #[entry]
         fn main() -> ! {

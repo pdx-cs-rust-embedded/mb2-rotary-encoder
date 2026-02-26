@@ -7,10 +7,7 @@ struct Encoder {
 }
 
 impl Encoder {
-    fn new(
-        pin_a: Pin<Input<PullUp>>,
-        pin_b: Pin<Input<PullUp>>,
-    ) -> Self {
+    fn new(pin_a: Pin<Input<PullUp>>, pin_b: Pin<Input<PullUp>>) -> Self {
         Self { pin_a, pin_b }
     }
 
@@ -28,12 +25,13 @@ pub struct Rotary {
 }
 
 impl Rotary {
-    pub fn new(
-        pin_a: Pin<Input<PullUp>>,
-        pin_b: Pin<Input<PullUp>>,
-    ) -> Self {
+    pub fn new(pin_a: Pin<Input<PullUp>>, pin_b: Pin<Input<PullUp>>) -> Self {
         let encoder = Encoder::new(pin_a, pin_b);
-        Self { encoder, state: 0b11, count: 0 }
+        Self {
+            encoder,
+            state: 0b11,
+            count: 0,
+        }
     }
 
     pub fn poll(&mut self) {

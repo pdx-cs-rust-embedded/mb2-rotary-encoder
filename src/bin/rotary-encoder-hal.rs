@@ -1,11 +1,14 @@
 #![no_main]
 #![no_std]
 
-use embedded_hal::{digital::InputPin, delay::DelayNs};
+use embedded_hal::{delay::DelayNs, digital::InputPin};
 use rotary_encoder_hal::{Direction, Phase, Rotary};
 
 fn update<A, B, P>(r: &mut Rotary<A, B, P>, count: isize) -> isize
-    where A: InputPin, B: InputPin, P: Phase,
+where
+    A: InputPin,
+    B: InputPin,
+    P: Phase,
 {
     let delta = match r.update().map_err(|_| "update error").unwrap() {
         Direction::Clockwise => 1,

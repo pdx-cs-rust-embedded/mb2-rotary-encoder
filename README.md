@@ -111,7 +111,7 @@ sufficient "scrubbing" of the dial.
 [`sb-rotary-encoder`](https://crates.io/crates/sb-rotary-encoder)
 is a fancy library with solid documentation, knob velocity
 support. Last updated about a year ago.
-  
+
 ### Not Evaluated
 
 Other libraries found on `crates.io` didn't seem worth

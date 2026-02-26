@@ -2,7 +2,7 @@
 #![no_std]
 
 use embedded_hal::delay::DelayNs;
-use mb2_rotary_encoder::{main, lib_bad::Rotary};
+use mb2_rotary_encoder::{lib_bad::Rotary, main};
 
 main! {
     Rotary::new,
@@ -10,6 +10,3 @@ main! {
     |r: &mut Rotary, _| r.count(),
     2000,
 }
-
-
-
