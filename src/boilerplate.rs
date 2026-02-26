@@ -18,7 +18,8 @@ macro_rules! main {
             let _pin_s = board.edge.e16.into_pullup_input().degrade();
             let pin_a = board.edge.e08.into_pullup_input().degrade();
             let pin_b = board.edge.e09.into_pullup_input().degrade();
-            let mut rotary = ($init)(pin_a, pin_b);
+            let qdec = board.QDEC;
+            let mut rotary = ($init)(qdec, pin_a, pin_b);
             let mut count = 0;
 
             loop {

@@ -51,7 +51,7 @@ impl Mb2RotaryEncoder {
 }
 
 mb2_rotary_encoder::main! {
-    |pin_a, pin_b| Mb2RotaryEncoder::new(pin_b, pin_a),
+    |_, pin_a, pin_b| Mb2RotaryEncoder::new(pin_b, pin_a),
     |r: &mut Mb2RotaryEncoder| r.update(),
     |r: &mut Mb2RotaryEncoder, _| r.count,
     1000,

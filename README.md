@@ -112,6 +112,12 @@ sufficient "scrubbing" of the dial.
 is a fancy library with solid documentation, knob velocity
 support. Last updated about a year ago.
 
+### nRF52 QDEC
+
+The nRF52 family of processors contain a QDEC hardware
+quadrature decoder. I did an implementation for the nRF52833
+(micro:bit v2). It works pretty flawlessly.
+
 ### Not Evaluated
 
 Other libraries found on `crates.io` didn't seem worth

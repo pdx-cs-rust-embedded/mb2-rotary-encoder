@@ -19,7 +19,7 @@ where
 }
 
 mb2_rotary_encoder::main! {
-    Rotary::new,
+    |_, pin_a, pin_b| Rotary::new(pin_a, pin_b),
     |_| (),
     update,
     1000,

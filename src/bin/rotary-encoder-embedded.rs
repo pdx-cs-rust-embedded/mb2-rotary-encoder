@@ -18,7 +18,7 @@ where
 }
 
 mb2_rotary_encoder::main! {
-    |pin_a, pin_b| RotaryEncoder::new(pin_b, pin_a).into_standard_mode(),
+    |_, pin_a, pin_b| RotaryEncoder::new(pin_b, pin_a).into_standard_mode(),
     |_r| (),
     update,
     1111,
