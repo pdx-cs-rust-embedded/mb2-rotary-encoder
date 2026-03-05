@@ -8,12 +8,16 @@ license-file = "LICENSE.txt"
 [dependencies]
 cortex-m-rt = "0.7"
 embedded-hal = "1.0.0"
-microbit-v2 = "0.16.0"
 panic-rtt-target = "0.2"
 rotary-encoder-embedded = "0.5.0"
 rotary-encoder-hal = "0.6.0"
 rtt-target = "0.6.2"
 sb-rotary-encoder = "0.1.0"
+
+[dependencies.microbit-v2]
+version = "0.16.0"
+git = "http://github.com/BartMassey-upstream/microbit"
+branch = "qdec-hack-2"
 
 # This works around old versions in the `microbit-v2`
 # crate. You don't have to use this crate, just linking
@@ -21,3 +25,6 @@ sb-rotary-encoder = "0.1.0"
 [dependencies.cortex-m]
 version = "0.7"
 features = ["inline-asm", "critical-section-single-core"]
+
+[features]
+floating = []

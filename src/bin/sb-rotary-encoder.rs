@@ -2,18 +2,18 @@
 #![no_std]
 
 use embedded_hal::{delay::DelayNs, digital::InputPin};
-use microbit::hal::gpio::*;
+use mb2_rotary_encoder::QPin;
 
 // Number of pulses required for one step. 4 is a typical value for encoders with detents.
 const PULSE_DIVIDER: i32 = 4;
 
 struct Encoder {
-    pin_a: Pin<Input<PullUp>>,
-    pin_b: Pin<Input<PullUp>>,
+    pin_a: QPin,
+    pin_b: QPin,
 }
 
 impl Encoder {
-    fn new(pin_a: Pin<Input<PullUp>>, pin_b: Pin<Input<PullUp>>) -> Self {
+    fn new(pin_a: QPin, pin_b: QPin) -> Self {
         Self { pin_a, pin_b }
     }
 
@@ -31,7 +31,7 @@ struct Mb2RotaryEncoder {
 }
 
 impl Mb2RotaryEncoder {
-    fn new(pin_a: Pin<Input<PullUp>>, pin_b: Pin<Input<PullUp>>) -> Self {
+    fn new(pin_a: QPin, pin_b: QPin) -> Self {
         let encoder = sb_rotary_encoder::RotaryEncoder::new();
         let pins = Encoder::new(pin_a, pin_b);
         Self {

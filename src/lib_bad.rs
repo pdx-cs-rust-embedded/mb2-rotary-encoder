@@ -1,13 +1,14 @@
 use embedded_hal::digital::InputPin;
-use microbit::hal::gpio::*;
+// use microbit::hal::gpio::*;
+use super::QPin;
 
 struct Encoder {
-    pin_a: Pin<Input<PullUp>>,
-    pin_b: Pin<Input<PullUp>>,
+    pin_a: QPin,
+    pin_b: QPin,
 }
 
 impl Encoder {
-    fn new(pin_a: Pin<Input<PullUp>>, pin_b: Pin<Input<PullUp>>) -> Self {
+    fn new(pin_a: QPin, pin_b: QPin) -> Self {
         Self { pin_a, pin_b }
     }
 
@@ -25,7 +26,7 @@ pub struct Rotary {
 }
 
 impl Rotary {
-    pub fn new(pin_a: Pin<Input<PullUp>>, pin_b: Pin<Input<PullUp>>) -> Self {
+    pub fn new(pin_a: QPin, pin_b: QPin) -> Self {
         let encoder = Encoder::new(pin_a, pin_b);
         Self {
             encoder,

@@ -2,18 +2,19 @@
 #![no_std]
 
 use embedded_hal::delay::DelayNs;
-use microbit::hal::{self, gpio::*, qdec};
+use microbit::hal::{self, qdec};
+use mb2_rotary_encoder::{QPin, QIn, QLed};
 
-struct Mb2RotaryEncoder {
-    qdec: qdec::Qdec,
+struct Nrf52RotaryEncoder {
+    qdec: qdec::Qdec<QIn, QLed>,
     count: isize,
 }
 
-impl Mb2RotaryEncoder {
+impl Nrf52RotaryEncoder {
     fn new(
         qdec: hal::pac::QDEC,
-        a: Pin<Input<PullUp>>,
-        b: Pin<Input<PullUp>>,
+        a: QPin,
+        b: QPin,
     ) -> Self {
         let pins = qdec::Pins { a, b, led: None };
         let qdec = qdec::Qdec::new(qdec, pins, qdec::SamplePeriod::_256us);
@@ -31,8 +32,8 @@ impl Mb2RotaryEncoder {
 }
 
 mb2_rotary_encoder::main! {
-    Mb2RotaryEncoder::new,
-    |r: &mut Mb2RotaryEncoder| r.update(),
-    |r: &mut Mb2RotaryEncoder, _| r.count,
+    Nrf52RotaryEncoder::new,
+    |r: &mut Nrf52RotaryEncoder| r.update(),
+    |r: &mut Nrf52RotaryEncoder, _| r.count,
     2000,
 }
