@@ -6,6 +6,10 @@ rotary encoder knobs with the BBC MicroBit v2.
 
 ## Device and Wiring
 
+I have worked with two different rotary encoders.
+
+### Konohan Encoder
+
 I purchased ten inexpensive rotary encoders with knobs and
 mounting hardware, branded *Konohan,* from Amazon
 <https://www.amazon.com/dp/B09KNC1J6H>. They arrived
@@ -26,6 +30,24 @@ pins 8 (GPIO1) and 9 (GPIO2) on the nRF52833 edge card. I
 connected the push switch to pin 16 (GPIO3) on the nRF52833
 edge card and to GND. All three GPIOs were configured as
 pull-up inputs.
+
+### Ali Encoder
+
+I purchased 20 rotary encoders from Ali Express in
+January 2026. These were unbranded. They came soldered to a
+PCB with pins "+5V", "GND", "S1", "S2" and "Key". The Key
+pin was for the push switch, which I ignored. I wired up the
+power pins (but with +3.3V power — I couldn't see any active
+components on the board) and connected S1 to pin 9 (GPIO1)
+and S2 to pin 8 (GPIO2) on the nRF52833 edge card.
+
+I implemented the "floating" Cargo feature that configured
+the GPIOs as floating inputs, and used that with this
+setup. I think there's both pull-up resistors and a passive
+"debounce filter" (doesn't really debounce) on the rotary
+encoder PCB.
+
+## Output
 
 With this wiring, the detent rest is at 11. The output is
 effectively a 2-bit Gray code.
