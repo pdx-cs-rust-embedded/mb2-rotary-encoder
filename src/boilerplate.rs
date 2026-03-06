@@ -18,18 +18,22 @@ macro_rules! main {
             let qdec = board.QDEC;
 
             #[cfg(feature="floating")]
-            let mut rotary =  {
-                let pin_a = board.edge.e08.into_floating_input().degrade();
-                let pin_b = board.edge.e09.into_floating_input().degrade();
-                ($init)(qdec, pin_a, pin_b)
-            };
+            let (mut pin_a, mut pin_b) = (
+                board.edge.e08.into_floating_input().degrade(),
+                board.edge.e09.into_floating_input().degrade(),
+            );
 
             #[cfg(not(feature="floating"))]
-            let mut rotary =  {
-                let pin_a = board.edge.e08.into_pullup_input().degrade();
-                let pin_b = board.edge.e09.into_pullup_input().degrade();
-                ($init)(qdec, pin_a, pin_b)
-            };
+            let (mut pin_a, mut pin_b) = (
+                board.edge.e08.into_pullup_input().degrade(),
+                board.edge.e09.into_pullup_input().degrade(),
+            );
+
+            let a = pin_a.is_high().unwrap() as u8;
+            let b = pin_b.is_high().unwrap() as u8;
+            rprintln!("initial: {}{}", a, b);
+
+            let mut rotary = ($init)(qdec, pin_a, pin_b);
 
             let mut count = 0;
 
